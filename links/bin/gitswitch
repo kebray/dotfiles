@@ -1,6 +1,4 @@
 #!/bin/bash
-# provides git user switching for MAC
-
 GNAME="$(git config -l | grep user.name | sed -n "s/^[^#].*=\(.*\)/\1/p")"
 
 NEWNAME=$1
@@ -23,18 +21,20 @@ elif [ "$NEWNAME" = "user2" ]; then
     `git config --global user.name "user2"`
     `git config --global user.email "user2@mail.com"`
 else
-    printf "\nOptions:\n\tgeekjournal\n\tedxt\n\tkebray\n\tedxnewco\n\n"    
+    printf "\nOptions:\n\tuser1\n\tuser2\n\n"    
     exit 0
 fi
 
 # Look for whether we already have a password in the keychain
 `security find-internet-password -l "github.com" > /dev/null 2>&1`
 
+# check for zero return code, which means we found it, so now delete it
 if [ $? -eq 0 ]
 then
     `security delete-internet-password -l "github.com" > /dev/null 2>&1`
     echo "... deleted OSX_KEYCHAIN github creds ..."
 fi
+
 
 GNAME="$(git config -l | grep user.name | sed -n "s/^[^#].*=\(.*\)/\1/p")"
 echo "Name is: ${GNAME}"
