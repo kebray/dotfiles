@@ -2,7 +2,7 @@
 #    Set General Path            #
 ##################################
 # includes appropriate path addition for use with MacPorts
-export PATH=/opt/local/bin:/opt/local/sbin:~/Documents/bin:/usr/local/bin:~/Library/Android/sdk/platform-tools:~/Dropbox/bin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:~/Documents/bin:/usr/local/bin:~/Library/Android/sdk/platform-tools:~/bin:$PATH
 
 ##################################
 #    Source our Secrets          #
