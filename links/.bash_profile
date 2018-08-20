@@ -22,6 +22,7 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 
 # ENV for Docker
 export LOCAL_DOCKER_IP=192.168.99.100
+#export EDXT_APP_PORT=8181
 
 ##################################
 #    Set up aliases              #
@@ -127,3 +128,9 @@ PS1='$BRANCHT\[\033[0;32m\]\u in \[\033[0;36m\]\w\n\h-->\[\033[0;93m\]\$ \[\033[
 # The next line enables bash completion for gcloud.
 #
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/kebray/Downloads/google-cloud-sdk/path.bash.inc' ]; then source '/Users/kebray/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/kebray/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/kebray/Downloads/google-cloud-sdk/completion.bash.inc'; fi
