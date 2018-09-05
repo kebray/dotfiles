@@ -5,6 +5,12 @@
 export PATH=/opt/local/bin:/opt/local/sbin:~/Documents/bin:/usr/local/bin:~/Library/Android/sdk/platform-tools:~/bin:$PATH
 
 ##################################
+#    Set long command history    #
+##################################
+HISTFILESIZE=1000000000
+HISTSIZE=1000000
+
+##################################
 #    Source our Secrets          #
 ##################################
 # It's important we don't check these in to GIT,
@@ -28,6 +34,28 @@ export LOCAL_DOCKER_IP=192.168.99.100
 #    Set up aliases              #
 ##################################
 alias gs="git status -s"
+#alias gl="git log --pretty=oneline"
+alias gl="git log --oneline"
+alias p="cd ~/dev/edxt/Platform"
+alias pf="cd ~/dev/edxt/Platform"
+alias dev="cd ~/dev"
+alias gbv="git branch -vv"
+alias gpo="git remote prune origin"
+g() 
+{
+	case $1 in
+		db)
+			git branch -D $2
+			git push origin --delete $2
+			git remote prune origin
+			;;
+		*)
+			echo No parmeters supplied
+			;;
+	esac
+}
+
+function sha256sum() { shasum -a 256 "$@" ; } && export -f sha256sum
 
 ##################################
 #    Set Some General Colors     #
